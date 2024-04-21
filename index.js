@@ -30,21 +30,22 @@ app.get('/webhook', (req, res) => {
 
 // POST /webhook
 app.post('/webhook', async (req, res) => {
+    console.log(req.body)
     // Facebook will be sending an object called "entry" for "leadgen" webhook event
-    if (!req.body.entry) {
-        return res.status(500).send({ error: 'Invalid POST data received' });
-    }
+    // if (!req.body.entry) {
+    //     return res.status(500).send({ error: 'Invalid POST data received' });
+    // }
 
-    // Travere entries & changes and process lead IDs
-    for (const entry of req.body.entry) {
-        for (const change of entry.changes) {
-            // Process new lead (leadgen_id)
-            await processNewLead(change.value.leadgen_id);
-        }
-    }
+    // // Travere entries & changes and process lead IDs
+    // for (const entry of req.body.entry) {
+    //     for (const change of entry.changes) {
+    //         // Process new lead (leadgen_id)
+    //         await processNewLead(change.value.leadgen_id);
+    //     }
+    // }
 
     // Success
-    res.send({ success: true });
+    res.send(req.body);
 })
 
 app.listen(port, () => {
