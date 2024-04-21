@@ -13,7 +13,7 @@ const FACEBOOK_PAGE_ACCESS_TOKEN = 'p7pcrtdfgnD6uZBua0aNAmfLB50SFL8ElHxoHmUH9vFF
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-    res.send("hello this api is calling to you")
+    res.send("panish hello this api is calling to you")
 })
 
 // GET /webhook
